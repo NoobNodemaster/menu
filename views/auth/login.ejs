@@ -4,8 +4,6 @@
 </head>
 
 <body>
-   <%- include('../includes/navigation.ejs') %>
-
     <main>
         <% if (errorMessage) { %>
             <div class="user-message user-message--error"><%= errorMessage %></div>
@@ -32,8 +30,5 @@
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <button class="btn" type="submit">Login</button>
         </form>
-        <div class="centered">
-            <a href="/reset">Reset Password</a>
-        </div>
     </main>
 <%- include('../includes/end.ejs') %>

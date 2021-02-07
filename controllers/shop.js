@@ -1,8 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const Product = require('../models/product');
-const Order = require('../models/order');
+const Product = require('../models/menu');
 const PDFDocument=require('pdfkit');
 const ITEM_PER_PAGE=2;
 

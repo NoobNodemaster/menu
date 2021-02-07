@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cross-env NODE_ENV=production MONGO_USER=Noobnodemaster MONGO_PASSWORD=Nodejs123 MONGO_DEFAULT_DATABASE=shopApp node app.js",
+    "start": "cross-env NODE_ENV=production MONGO_USER=Noobnodemaster MONGO_PASSWORD=Nodejs123 MONGO_DEFAULT_DATABASE=menu node app.js",
     "start-server": "node app.js",
     "start:dev": "nodemon app.js"
   },
@@ -28,20 +28,13 @@
     "csurf": "^1.11.0",
     "ejs": "^2.7.4",
     "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
     "express-session": "^1.17.1",
     "express-validator": "^5.3.1",
-    "handlebars": "^4.7.6",
     "helmet": "^3.22.0",
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.16",
     "morgan": "^1.10.0",
-    "multer": "^1.4.2",
     "mysql2": "^1.7.0",
-    "nodemailer": "^4.7.0",
-    "nodemailer-sendgrid-transport": "^0.2.0",
-    "pdfkit": "^0.11.0",
-    "pug": "^2.0.4",
     "sequelize": "^5.21.10"
   }
 }

@@ -4,8 +4,6 @@
 </head>
 
 <body>
-   <%- include('../includes/navigation.ejs') %>
-
     <main>
         <% if (errorMessage) { %>
             <div class="user-message user-message--error"><%= errorMessage %></div>
@@ -28,15 +26,6 @@
                     name="password" 
                     id="password" 
                     value="<%= oldInput.password %>">
-            </div>
-            <div class="form-control">
-                <label for="confirmPassword">Confirm Password</label>
-                <input 
-                    class="<%= validationErrors.find(e => e.param === 'confirmPassword') ? 'invalid' : '' %>"
-                    type="password" 
-                    name="confirmPassword" 
-                    id="confirmPassword" 
-                    value="<%= oldInput.confirmPassword %>">
             </div>
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <button class="btn" type="submit">Signup</button>

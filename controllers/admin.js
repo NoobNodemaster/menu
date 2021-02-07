@@ -3,9 +3,9 @@ const fileHelper=require('../util/file');
 
 const { validationResult } = require('express-validator/check');
 
-const Product = require('../models/product');
+const Menu = require('../models/menu');
 
-exports.getAddProduct = (req, res, next) => {
+exports.getAddMenu = (req, res, next) => {
   res.render('admin/edit-product', {
     pageTitle: 'Add Product',
     path: '/admin/add-product',
@@ -59,7 +59,7 @@ exports.postAddProduct = (req, res, next) => {
     });
   }
 
-  const product = new Product({
+  const menu = new Menu({
     // _id: new mongoose.Types.ObjectId('5badf72403fd8b5be0366e81'),
     title: title,
     price: price,
