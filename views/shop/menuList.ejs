@@ -20,20 +20,7 @@
                                         <%= menu.price %>
                                     </h2>
                                 </div>
-                                <div class="card__actions">
-                                    <a href="/admin/edit-product/<%= menu._id %>?edit=true" class="btn">Edit</a>
-                                    <form action="/admin/delete-product" method="POST">
-                                        <input type="hidden" value="<%= menu._id %>" name="menuId">
-                                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                                        <button class="btn" type="submit">Delete</button>
-                                    </form>
-
-                                </div>
                             </article>
-                            <% } %>
                     </div>
-                    <% } else { %>
-                        <h1>No menus Found!</h1>
-                        <% } %>
             </main>
             <%- include('../includes/end.ejs') %>

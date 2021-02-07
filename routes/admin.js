@@ -9,48 +9,37 @@ const isAuth = require('../middleware/is-auth');
 const router = express.Router();
 
 // /admin/add-product => GET
-router.get('/add-product', isAuth, adminController.getAddMenu);
+router.get('/addMenu', isAuth, adminController.getAddMenu);
 
 // /admin/products => GET
-router.get('/products', isAuth, adminController.getProducts);
+router.get('/products', isAuth, adminController.getMenus);
 
 // /admin/add-product => POST
 router.post(
-  '/add-product',
+  '/addmenu',
   [
-    body('title')
+    body('foodName')
       .isString()
-      .isLength({ min: 3 })
-      .trim(),
-    body('imageUrl'),
-    body('price').isFloat(),
-    body('description')
-      .isLength({ min: 5, max: 400 })
-      .trim()
-  ],
+      .not().isEmpty(),
+    body('price').isFloat()
+    ],
   isAuth,
-  adminController.postAddProduct
+  adminController.postAddMenu
 );
 
-router.get('/edit-product/:productId', isAuth, adminController.getEditProduct);
+router.get('/edit-menu/:menuId', isAuth, adminController.getEditMenu);
 
 router.post(
-  '/edit-product',
+  '/edit-menu',
   [
-    body('title')
-      .isString()
-      .isLength({ min: 3 })
-      .trim(),
-    //body('imageUrl').isURL(),
-    body('price').isFloat(),
-    body('description')
-      .isLength({ min: 5, max: 400 })
-      .trim()
+    body('foodName')
+      .not().isEmpty(),
+    body('price').isFloat()
   ],
   isAuth,
-  adminController.postEditProduct
+  adminController.postEditMenu
 );
 
-router.post('/delete-product', isAuth, adminController.postDeleteProduct);
+router.post('/deletemenu', isAuth, adminController.postDeleteMenu);
 
 module.exports = router;
