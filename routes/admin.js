@@ -12,7 +12,7 @@ const router = express.Router();
 router.get('/addMenu', isAuth, adminController.getAddMenu);
 
 // /admin/products => GET
-router.get('/products', isAuth, adminController.getMenus);
+router.get('/menus', isAuth, adminController.getMenus);
 
 // /admin/add-product => POST
 router.post(
