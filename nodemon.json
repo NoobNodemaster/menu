@@ -1,0 +1,7 @@
+{
+    "env":{
+        "MONGO_USER":"Noobnodemaster",
+        "MONGO_PASSWORD":"Nodejs123",
+        "MONGO_DEFAULT_DATABASE":"shopApp"
+    }
+}
