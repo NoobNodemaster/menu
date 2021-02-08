@@ -1,0 +1,42 @@
+<div class="backdrop"></div>
+<header class="main-header">
+    <button id="side-menu-toggle">Menu</button>
+    <nav class="main-header__nav">
+        <ul class="main-header__item-list">
+            <% if (isAuthenticated) { %>
+                <li class="main-header__item">
+                    <a class="<%= path === '/menu' ? 'active' : '' %>" href="/menus">Menus</a>
+                </li>
+          
+                <li class="main-header__item">
+                <a class="<%= path === '/admin/add-menu' ? 'active' : '' %>" href="/addmenu">Add Menu</a>
+            </li> 
+            <li class="main-header__item">
+                <form action="/logout" method="post">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <button type="submit">Logout</button>
+                </form>
+            </li>
+            <% } %>
+        </ul>
+    </nav>
+</header>
+
+<nav class="mobile-nav">
+    <ul class="mobile-nav__item-list">
+        <% if (isAuthenticated) { %>
+            <li class="mobile-nav__item">
+                <a class="<%= path === '/menu' ? 'active' : '' %>" href="/menus">Menus</a>
+            </li>
+        <li class="mobile-nav__item">
+            <a class="<%= path === '/admin/add-menu' ? 'active' : '' %>" href="/addmenu">Add Menu</a>
+        </li>
+
+        <li class="mobile-nav__item">
+            <form action="/logout" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button type="submit">Logout</button>
+            </form>
+        </li>
+        <% } %>
+</nav>

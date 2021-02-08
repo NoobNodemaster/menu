@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+ 
 const { validationResult } = require('express-validator/check');
 
 const Menu = require('../models/menu');
@@ -167,7 +167,7 @@ exports.getMenu = (req, res, next) => {
   Menu.find()
     .then(menus => {
       // console.log(menus);
-      res.render('shop/menuList', {
+      res.render('admin/menuList', {
         menu: menus,
         pageTitle: 'All Menus',
         path: '/menu'
