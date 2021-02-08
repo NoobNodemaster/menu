@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const fileHelper=require('../util/file');
 
 const { validationResult } = require('express-validator/check');
 
@@ -15,6 +14,7 @@ exports.getAddMenu = (req, res, next) => {
     validationErrors: []
   });
 };
+
 
 exports.postAddMenu = (req, res, next) => {
   const foodName = req.body.foodName;
@@ -41,11 +41,12 @@ exports.postAddMenu = (req, res, next) => {
     foodName: foodName,
     price: price
     });
-  menu
-    .save()
+
+ return menu.save()
     .then(result => {
       console.log('Menu added');
-      res.redirect('/admin/menu');
+      console.log(result);
+      res.redirect('/addmenu');
     })
     .catch(err => {
       const error = new Error(err);
@@ -53,7 +54,7 @@ exports.postAddMenu = (req, res, next) => {
       return next(error);
     });
 };
-
+ 
 exports.getEditMenu = (req, res, next) => {
   const editMode = req.query.edit;
   if (!editMode) {
@@ -86,6 +87,9 @@ exports.postEditMenu = (req, res, next) => {
   const menuId = req.body.menuId;
   const updatedFoodName = req.body.foodName;
   const updatedPrice = req.body.price;
+  console.log(menuId);
+  console.log(updatedFoodName);
+  console.log(updatedPrice);
   
   const errors = validationResult(req);
 
@@ -107,14 +111,11 @@ exports.postEditMenu = (req, res, next) => {
 
   Menu.findById(menuId)
     .then(menu => {
-      if (menu.userId.toString() !== req.user._id.toString()) {
-        return res.redirect('/');
-      }
       menu.foodName = updatedFoodName;
       menu.price = updatedPrice;
+      console.log(menu);
       return menu.save().then(result => {
-        console.log('UPDATED Menu');
-        res.redirect('/admin/menu');
+        res.redirect('/menus');
       });
     })
     .catch(err => {
@@ -125,15 +126,15 @@ exports.postEditMenu = (req, res, next) => {
 };
 
 exports.getMenus = (req, res, next) => {
-  Menu.find({ userId: req.user._id })
-    .then(menu => {
-      console.log(menu);
-      res.render('admin/menu', {
-        menus: menu,
-        pageTitle: 'Admin Menu',
-        path: '/admin/menu'
-      });
-    })
+  Menu.find()
+  .then(menus => {
+    // console.log(menus);
+    res.render('admin/menu', {
+      menu: menus,
+      pageTitle: 'All Menus',
+      path: '/menu'
+    });
+  })
     .catch(err => {
       const error = new Error(err);
       error.httpStatusCode = 500;
@@ -148,14 +149,34 @@ Menu.findById(menuId)
   if(!menu){
     return next(new Error('menu not found'));
   }
-return Menu.deleteOne({ _id: prodId, userId: req.user._id })
+return Menu.deleteOne({ _id: menuId})
 })  
 .then(() => {
       console.log('DESTROYED PRODUCT');
-      res.redirect('/admin/products');
+      res.redirect('/menus');
     })
     .catch(err => {
       const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
+    });
+};
+
+
+exports.getMenu = (req, res, next) => {
+  Menu.find()
+    .then(menus => {
+      // console.log(menus);
+      res.render('shop/menuList', {
+        menu: menus,
+        pageTitle: 'All Menus',
+        path: '/menu'
+      });
+    })
+    .catch(err => {
+
+      const error = new Error(err);
+      console.log(error);
       error.httpStatusCode = 500;
       return next(error);
     });

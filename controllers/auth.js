@@ -38,8 +38,7 @@ exports.getSignup = (req, res, next) => {
     errorMessage: message,
     oldInput: {
       email: '',
-      password: '',
-      confirmPassword: ''
+      password: ''
     },
     validationErrors: []
   });
@@ -124,9 +123,8 @@ exports.postSignup = (req, res, next) => {
       errorMessage: errors.array()[0].msg,
       oldInput: {
         email: email,
-        password: password,
-        confirmPassword: req.body.confirmPassword
-      },
+        password: password
+            },
       validationErrors: errors.array()
     });
   }
@@ -137,7 +135,6 @@ exports.postSignup = (req, res, next) => {
       const user = new User({
         email: email,
         password: hashedPassword,
-        cart: { items: [] }
       });
       return user.save();
     })

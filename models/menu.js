@@ -10,12 +10,13 @@ const menuSchema = new Schema({
   price: {
     type: Number,
     required: true
-  },
-  userId: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
   }
+  // ,
+  // userId: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'User',
+  //   required: true
+  // }
 });
 
 module.exports = mongoose.model('menu', menuSchema);

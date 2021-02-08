@@ -30,7 +30,6 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 const adminRoutes = require('./routes/admin');
-const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
 
 const accessLogStream=fs.createWriteStream(path.join(__dirname,'access.log'),{flags:'a'});
@@ -41,7 +40,7 @@ app.use(morgan('combined',{stream:accessLogStream}));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/images',express.static(path.join(__dirname, 'images')));
+
 
 
 app.use(
@@ -79,8 +78,7 @@ app.use((req, res, next) => {
     });
 });
 
-app.use('/admin', adminRoutes);
-app.use(shopRoutes);
+app.use(adminRoutes);
 app.use(authRoutes);
 
 app.get('/500', errorController.get500);

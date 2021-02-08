@@ -8,11 +8,12 @@ const isAuth = require('../middleware/is-auth');
 
 const router = express.Router();
 
-// /admin/add-product => GET
-router.get('/addMenu', isAuth, adminController.getAddMenu);
+router.get('/', adminController.getMenu);
+
+router.get('/addmenu',isAuth,adminController.getAddMenu); //checked
 
 // /admin/products => GET
-router.get('/menus', isAuth, adminController.getMenus);
+router.get('/menus', isAuth, adminController.getMenus); //partial
 
 // /admin/add-product => POST
 router.post(
@@ -25,12 +26,12 @@ router.post(
     ],
   isAuth,
   adminController.postAddMenu
-);
+); //checked
 
-router.get('/edit-menu/:menuId', isAuth, adminController.getEditMenu);
+router.get('/editmenu/:menuId', isAuth, adminController.getEditMenu);
 
 router.post(
-  '/edit-menu',
+  '/editmenu',
   [
     body('foodName')
       .not().isEmpty(),

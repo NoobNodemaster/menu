@@ -6,21 +6,21 @@
 
 
             <main>
-                <% if (menus.length > 0) { %>
+                <% if (menu.length > 0) { %>
                     <div class="grid">
-                        <% for (let menu of menus) { %>
+                        <% for (let menus of menu) { %>
                             <article class="card product-item">
                                 <header class="card__header">
-                                    <h1 class="product__title">
-                                        <%= menu.foodName %>
-                                    </h1>
+                                        <%= menus.foodName %>
+                                            Rs<%= menus.price %>
+                                    
                                 </header>
-                                <div class="card__content">
-                                    <h2 class="product__price">$
-                                        <%= menu.price %>
-                                    </h2>
                                 </div>
                             </article>
+                            <% } %>
                     </div>
+                    <% } else { %>
+                        <h1>No menus Found!</h1>
+                        <% } %>
             </main>
             <%- include('../includes/end.ejs') %>
