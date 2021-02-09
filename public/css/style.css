@@ -2201,6 +2201,7 @@ section.parallax-section.hero-section .section-title h2 {
 }
 .left-padding{
 	padding-left:15px;
+	    padding-top: 6px;
 }
 .hero-menu-item-price {
 	float:right;
