@@ -4346,7 +4346,7 @@ cite.fn .star-rating {
 } 
 @media only screen and (max-width: 1064px) {
 .nav-button-wrap {
-	float:right;
+	/* float:right; */
 	height:70px;
 	width:70px;
 	cursor:pointer;
