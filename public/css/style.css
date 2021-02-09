@@ -4772,7 +4772,7 @@ section {
 .hero-menu-item-title {
 	float:left;
 	text-align:left;
-	width:calc(100% - 90px);
+	width:calc(100% - 8px);
 }
 .add_cart {
 	bottom:0;
