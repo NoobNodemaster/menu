@@ -216,9 +216,12 @@ blockquote p {
 	opacity:0;
 }
 .fl-wrap {
-	float: left;
+/* 	float: left;
 	width: 100%;
-	position: relative;
+	position: relative; */
+	        display: flex;
+    		justify-content: center;
+    		align-content: center;
 }
 .content {
 	float: left;
