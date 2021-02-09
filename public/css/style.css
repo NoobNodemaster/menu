@@ -65,11 +65,11 @@ body {
 }
 .hero-menu-item-title.fl-wrap {
     border: 0.5px solid #aba8a1;
-	padding-right: 80px;
-	padding-left: 80px;
 	border-radius: 10px;
 	margin-bottom: 4px;
-    padding: 1px;
+    padding: 0px;
+	display: flex;
+    justify-content: space-between;
 }
 .loader {
 	position: absolute;
