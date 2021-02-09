@@ -1,26 +1,97 @@
 <%- include('../includes/head.ejs') %>
-    <link rel="stylesheet" href="/css/product.css">
-    </head>
 
-    <body>
+    <!--=============== basic  ===============-->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!--=============== css  ===============-->
+    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link type="text/css" rel="stylesheet" href="css/plugins.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/color.css"> 
+    <!--=============== favicons ===============-->
+    <link rel="shortcut icon" href="images/favicon.ico">
+</head>
 
+<body>
+    <!-- lodaer  -->
+    <div class="loader-wrap">
+        <div class="loader-item">
+            <div class="cd-loader-layer" data-frame="25">
+                <div class="loader-layer"></div>
+            </div>
+            <span class="loader"></span>
+        </div>
+    </div>
+    <!-- loader end  -->
+    <!-- main start  -->
+    <div id="main">
 
-            <main>
-                <% if (menu.length > 0) { %>
-                    <div class="grid">
-                        <% for (let menus of menu) { %>
-                            <article class="card product-item">
-                                <header class="card__header">
-                                        <%= menus.foodName %>
-                                            Rs<%= menus.price %>
-                                    
-                                </header>
-                                </div>
-                            </article>
-                            <% } %>
+        <!-- wrapper  -->
+        <div id="wrapper">
+            <!-- content  -->
+            <div class="content">
+                <!--  section  -->
+                <section class="parallax-section hero-section hidden-section" data-scrollax-parent="true">
+                    <div class="bg par-elem " data-bg="images/bg/10.jpg"
+                        data-scrollax="properties: { translateY: '30%' }"></div>
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="section-title">
+                            <h2>Little Door</h2>
+                            <br>
+                            <h2>Discover Our menu</h2>
+                            <div class="dots-separator fl-wrap"><span></span></div>
+                        </div>
                     </div>
-                    <% } else { %>
+
+                    <div class="brush-dec"></div>
+                </section>
+                <!--  section  end-->
+                <!--  section  -->
+                <section>
+                <% if (menu.length > 0) { %>
+                    <div class="brush-dec2 brush-dec_bottom"></div>
+                    <div class="container">
+                        <!-- menu-wrapper-->
+                        <div class="menu-wrapper single-menu fl-wrap" id="menu-section-1" data-scrollax-parent="true">
+                            
+                            <!-- hero-menu-item-->
+                            <div class="hero-menu-item">
+                         <% for (let menus of menu) { %>
+                                <div class="hero-menu-item-title fl-wrap">
+                                    <h6> <%= menus.foodName %></h6>
+                                    <div class="hmi-dec"></div>
+                                    <span class="hero-menu-item-price">Rs <%= menus.price %></span>
+                                </div>
+<% } %>
+
+                            </div>
+                             <% } else { %>
                         <h1>No menus Found!</h1>
                         <% } %>
-            </main>
-            <%- include('../includes/end.ejs') %>
+                  </section>
+            </div>
+            <!-- content end  -->
+            <!-- footer -->
+            <div class="height-emulator fl-wrap"></div>
+            <footer class="fl-wrap dark-bg fixed-footer">
+                <div class="container">
+                    <!-- footer-widget-wrap end-->
+                    <div class="footer-bottom fl-wrap">
+                        <div class="copyright">&#169; ICT Infotech . All rights reserved. </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- footer end-->
+        </div>
+        <!-- cursor end-->
+    </div>
+    <!-- Main end -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/scripts.js"></script>
+   <%- include('../includes/end.ejs') %>
