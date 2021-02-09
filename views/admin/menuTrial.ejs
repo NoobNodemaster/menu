@@ -1,10 +1,7 @@
-<!DOCTYPE HTML>
-<html lang="en">
+<%- include('../includes/head.ejs') %>
 
-<head>
     <!--=============== basic  ===============-->
     <meta charset="UTF-8">
-    <title>Restaurent</title>
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="index, follow" />
@@ -14,7 +11,7 @@
     <link type="text/css" rel="stylesheet" href="css/reset.css">
     <link type="text/css" rel="stylesheet" href="css/plugins.css">
     <link type="text/css" rel="stylesheet" href="css/style.css">
-    <link type="text/css" rel="stylesheet" href="css/color.css">
+    <link type="text/css" rel="stylesheet" href="css/color.css"> 
     <!--=============== favicons ===============-->
     <link rel="shortcut icon" href="images/favicon.ico">
 </head>
@@ -44,9 +41,8 @@
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="section-title">
-                            <h2>Restaurant Name</h2>
-                            <br><br>
-                            <h4>Special menu offers.</h4>
+                            <h2>Little Door</h2>
+                            <br>
                             <h2>Discover Our menu</h2>
                             <div class="dots-separator fl-wrap"><span></span></div>
                         </div>
@@ -57,6 +53,7 @@
                 <!--  section  end-->
                 <!--  section  -->
                 <section>
+                <% if (menu.length > 0) { %>
                     <div class="brush-dec2 brush-dec_bottom"></div>
                     <div class="container">
                         <!-- menu-wrapper-->
@@ -64,16 +61,19 @@
                             
                             <!-- hero-menu-item-->
                             <div class="hero-menu-item">
-                                <!-- <a href="images/menu/1.jpg" class="hero-menu-item-img image-popup"><img
-                                        src="images/menu/thumbnails/1.jpg" alt=""></a> -->
+                         <% for (let menus of menu) { %>
                                 <div class="hero-menu-item-title fl-wrap">
-                                    <h6> Soft shell crab</h6>
+                                    <h6> <%= menus.foodName %></h6>
                                     <div class="hmi-dec"></div>
-                                    <span class="hero-menu-item-price">$29</span>
-                                    <div class="add_cart">Add To Cart</div>
+                                    <span class="hero-menu-item-price">Rs <%= menus.price %></span>
+                                    
                                 </div>
+<% } %>
 
                             </div>
+                             <% } else { %>
+                        <h1>No menus Found!</h1>
+                        <% } %>
                   </section>
             </div>
             <!-- content end  -->
@@ -95,6 +95,4 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/scripts.js"></script>
-</body>
-
-</html>
+   <%- include('../includes/end.ejs') %>

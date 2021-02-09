@@ -167,7 +167,7 @@ exports.getMenu = (req, res, next) => {
   Menu.find()
     .then(menus => {
       // console.log(menus);
-      res.render('admin/menuList', {
+      res.render('admin/menuTrial', {
         menu: menus,
         pageTitle: 'All Menus',
         path: '/menu'
