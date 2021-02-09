@@ -63,6 +63,14 @@ body {
 	overflow:hidden;
 	z-index:100;
 }
+.hero-menu-item-title.fl-wrap {
+    border: 0.5px solid #aba8a1;
+	padding-right: 80px;
+	padding-left: 80px;
+	border-radius: 10px;
+	margin-bottom: 4px;
+    padding: 1px;
+}
 .loader {
 	position: absolute;
 	top:50%;
@@ -2188,8 +2196,12 @@ section.parallax-section.hero-section .section-title h2 {
 .single-menu .hero-menu-item-title h6 span {
 	left:0;
 }
+.left-padding{
+	padding-left:15px;
+}
 .hero-menu-item-price {
 	float:right;
+	padding-right: 15px;
 	font-size:18px;
 	position:relative;
 	top:-4px;
